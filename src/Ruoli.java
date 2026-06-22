@@ -1,0 +1,3 @@
+public enum Ruoli {
+    PROIEZIONISTA, CLIENTE, BIGLIETTAIO
+}
