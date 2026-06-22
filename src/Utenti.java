@@ -16,7 +16,7 @@ public class Utente {
     //COSTRUTTORI
     public Utente (Date datanascita,String Nome, String Cognome, String Username, String Password, String Indirizzo, Ruoli Ruolo) {
 
-        Date datanascita;
+        this.datanascita = datanascita;
         this.Nome = Nome;
         this.Cognome = Cognome;
         this.Username = Username;
