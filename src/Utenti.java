@@ -1,4 +1,6 @@
 import java.util.Date;
+import java.io.*;
+import java.text.SimpleDateformat;
 
 public class Utente {
 
@@ -20,9 +22,15 @@ public class Utente {
         this.Nome = Nome;
         this.Cognome = Cognome;
         this.Username = Username;
-        this.Password = Password;
+        this.Password = Password;//mofifica per farlo
         this.Indirizzo = Indirizzo;
         this.Ruolo = Ruolo;
+        //Salvo l'oggetto utente nel file
+        File f= new File("utenti.csv");
+        FileWriter fw = new FileWriter(fw);
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(Nome+","+Cognome+","+Username+","+Password+","+datanascita+","+Indirizzo+","+Ruolo);
+
     }
 
 
