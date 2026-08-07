@@ -1,7 +1,7 @@
 import java.util.Date;
 import java.io.*;
 import java.text.SimpleDateformat;
-
+import GestionePassword;
 public class Utente {
 
     //CAMPI
@@ -22,9 +22,10 @@ public class Utente {
         this.Nome = Nome;
         this.Cognome = Cognome;
         this.Username = Username;
-        this.Password = Password;//mofifica per farlo
+        this.Password = Password;
         this.Indirizzo = Indirizzo;
         this.Ruolo = Ruolo;
+
         //Salvo l'oggetto utente nel file
         File f= new File("utenti.csv");
         FileWriter fw = new FileWriter(fw);
