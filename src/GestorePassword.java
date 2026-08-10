@@ -1,19 +1,24 @@
-import java.security.MessageDigest;
+import java.security.*;
 public class GestorePassword{
 //campi
-
+private String algo;
 //costruttori
-
+public GestorePassword(){
+    this.algo="SHA-256"
+}
+public GestorePassword(string a){
+this.algo=a;
+}
 //metodi
-public String cifraPassword(String passwordEsatta) {
+public String hashPassword(String passwordEsatta) {
         try
         {
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            Byte[] passwordCifrata = md.digest(passwordEsatta.getBytes());
-            return passwordCifrata.toString();
+            MessageDigest md = MessageDigest.getInstance(algo);
+            byte[] passwordCifrata = md.digest(passwordEsatta.getBytes());
+            return passwordCifrata;
         }
          catch(NoSuchAlgorithmException e){
-            system.out.println("Errore durante hashing:" + e.getMessage());
+            System.out.println("Errore durante hashing:" + e.getMessage());
         }
     }
 }
