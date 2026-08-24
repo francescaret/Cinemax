@@ -24,7 +24,7 @@ public class Utenti {
         this.Username = Username;
         this.Password = Password;//mofifica per farlo
         this.Indirizzo = Indirizzo;
-        this.Ruolo = Ruolo;
+        this.Ruolo = "CLIENTE";
         //Salvo l'oggetto utente nel file
         File f= new File("utenti.csv");
         FileWriter fw = new FileWriter(f);
