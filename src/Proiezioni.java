@@ -1,28 +1,55 @@
-import java.util.Date;
-import java.text.SimpleDateformat;
+import java.util.*
+
 
 public class Proiezioni{
     //CAMPI
-    private Film[] proiezioni;
+    private LinkedList<Film> proiezioni;
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     //COSTRUTTORI
     public Proiezioni(){
-        proiezioni==new Film[20] ; //limite imposto per film in una giornata;
+        proiezioni==new LinkedList<Film>();
     }
+    //METODI
+    public aggiungiProiezione(String t){
+        Film f= new Film(t);
+        proiezioni.add(f);
+    }
+    public eliminaProiezione(String t){
+        for (int i=0; i<proiezioni.size(); i++){
+            if (t.equals(proiezioni.get(i))){
+                proiezioni.remove(i);
+            }
+            else {
+                print("Film non trovato")
+            };
+        }
+    }
+
     public modificaDataOra(String t; Date d){
-        for (int i=0; i<proiezioni.length(); i++){
-            if (t.equals(proiezioni[i])){
-                proiezioni[i].setData_Ora(formatter.parse(d));
+        for (int i = 0; i < proiezioni.size(); i++) {
+            if (t.equals(proiezioni.get(i))) {
+                proiezioni.get(i).setData_Ora(formatter.parse(d));
             }
         }
-    public modificaPrezzo_biglietto(string t; double pb){
-            for (int i=0; i<proiezioni.length(); i++){
-                if (t.equals(proiezioni[i])){
-                    proiezioni[i].setPrezzo_biglietto(pb);
+    }
+    public modificaPrezzo_biglietto(String t; double pb){
+            for (int i=0; i<proiezioni.size(); i++){
+                if (t.equals(proiezioni.get(i))){
+                    proiezioni.get(i).setPrezzo_biglietto(pb);
                 }
             }
         }
+    public visualizzaProiezioni(){
+        for(int i=0; i<proiezioni.size();i++){
+            print(proiezioni.get(i));
+        }
     }
-    //METODI
-}
+    public cercaProiezione(string t){
+        for (int i = 0; i < proiezioni.size(); i++) {
+            if (t.equals(proiezioni.get(i))) {
+                print(proiezioni.get(i));
+            }
+        }
+    }
+    }

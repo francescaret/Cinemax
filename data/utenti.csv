@@ -1,8 +1,8 @@
 nome,cognome,username,password,data_nascita,domicilio,ruolo
-Richard,Grimes,rim3s,....,2003-12-15,"Milano",proiezionista
-Camilla,Mascherone,cicerone1,....,2005-09-12,"Milano",bigliettaio
-Sabrina,Carpentieri,serpentieri,...,2005-03-18,"Varese",bigliettaio
-Marilu,Bianchi,star1977,....,1977-09-08,"Besnate",proiezionista
-Alice,Trogu,alicc55,....,2005-05-05,"Olgiate Olona",bigliettaio
-Carlo,Muciaccia,artattack4,....,2005-09-25,"Castellanza",bigliettaio
-Giulia,Menchi,genchi67,....,2000-06-07,"Uboldo",bigliettaio
+Richard,Grimes,rim3s,a5896eb0d21467313e8bd0efe38b6006e52e60a817d969752422f298d0355a19,2003-12-15,"Milano",proiezionista
+Camilla,Mascherone,cicerone1,3e313b7c9cf60414da1c5360f75060a545cb028d1ca38b86c3267868c66620a3,2005-09-12,"Milano",bigliettaio
+Sabrina,Carpentieri,serpentieri,b97ac9ca4d0e918414e86ce1dcfdd89c2779976e9fe34a3f7452b7401debcab5,2005-03-18,"Varese",bigliettaio
+Marilu,Bianchi,star1977,6f986b22bb573cdcafc9471192f905a6a2dd4a4b01c8804f56ffe1f2d02e40bc,1977-09-08,"Besnate",proiezionista
+Alice,Trogu,alicc55,ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f,2005-05-05,"Olgiate Olona",bigliettaio
+Carlo,Muciaccia,artattack4,5da0ee5771222ff599244b7258bc23e2749386faa39405bf8c2ac632667c23e2,2005-09-25,"Castellanza",bigliettaio
+Giulia,Menchi,genchi67,08b4d5836f7685cf5164588163d404d74d30a1bb779bc72882e5d6dc0e7cdb2f,2000-06-07,"Uboldo",bigliettaio
