@@ -1,5 +1,11 @@
 import java.util.*
 
+/**
+ * Un oggetto della classe <code>Proiezieni</code> rappresenta
+ * La lista di film attualmente in proiezione del cinema
+ *
+ * @author
+ */
 
 public class Proiezioni{
     //CAMPI
