@@ -2,7 +2,7 @@ import java.util.Date;
 import java.io.*;
 import java.text.SimpleDateformat;
 
-public class Utenti {
+public class Utente {
 
     //CAMPI
 
@@ -16,7 +16,7 @@ public class Utenti {
 
 
     //COSTRUTTORI
-    public Utenti (Date datanascita,String Nome, String Cognome, String Username, String Password, String Indirizzo, Ruoli Ruolo) throws IOException {
+    public Utente (Date datanascita,String Nome, String Cognome, String Username, String Password, String Indirizzo, Ruoli Ruolo) {
 
         this.datanascita = datanascita;
         this.Nome = Nome;
@@ -27,7 +27,7 @@ public class Utenti {
         this.Ruolo = "CLIENTE";
         //Salvo l'oggetto utente nel file
         File f= new File("utenti.csv");
-        FileWriter fw = new FileWriter(f);
+        FileWriter fw = new FileWriter(fw);
         BufferedWriter bw = new BufferedWriter(fw);
         bw.write(Nome+","+Cognome+","+Username+","+Password+","+datanascita+","+Indirizzo+","+Ruolo);
 

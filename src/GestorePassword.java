@@ -1,15 +1,18 @@
 import java.security.*;
 public class GestorePassword{
-//campi
+
+//CAMPI
 private String algo;
-//costruttori
+
+//COSTRUTTORI
 public GestorePassword(){
     this.algo="SHA-256"
 }
 public GestorePassword(string a){
 this.algo=a;
 }
-//metodi
+
+//METODI
 public String hashPassword(String passwordEsatta) {
         try
         {
