@@ -3,6 +3,13 @@ import java.io.*;
 import java.text.SimpleDateformat;
 import java.text.ParseException;
 
+/**
+ * Un oggetto della classe <code>Film</code> rappresenta
+ * Un film nella banca dati del cinema
+ *
+ * @author
+ */
+
 public class Film {
 
     //CAMPI
@@ -17,6 +24,13 @@ public class Film {
     private double prezzo_biglietto;
 
     //COSTRUTTORI
+
+    /**
+     * Costruisce un oggetto che rappresenta un film
+     * Cercandolo nel file proiezioni.csv tramite il titolo fornito per parametro
+     * @param t la stringa contenente il titolo del film
+     */
+
     public Film (String t) throws IOException, ParseException{
 
     String delim=",";
@@ -28,7 +42,6 @@ public class Film {
 
     String[] colonne = new String[8];
     String riga;
-    //cerca la riga con il titolo uguale a quella passata come parametro, split restituisce un array di stringhe
      while ((riga = br.readLine()) != null) {
             colonne = riga.split(delim);
 
@@ -52,67 +65,115 @@ public class Film {
 
 
     //METODI
-
+    /**
+     * Restituisce le ore
+     * @return le ore
+     */
     public Date getData_ora() {
         return data_ora;
     }
-
+    /**
+     * Restituisce il titolo
+     * @return il titolo
+     */
     public String getTitolo() {
         return titolo;
     }
-
+    /**
+     * Restituisce il genere
+     * @return il genere
+     */
     public Generi getGenere() {
         return genere;
     }
-
+    /**
+     * Restituisce il regista
+     * @return il regista
+     */
     public String getRegista() {
         return regista;
     }
-
+    /**
+     * Restituisce l'anno
+     * @return l'anno
+     */
     public int getAnno() {
         return anno;
     }
-
+    /**
+     * Restituisce la durata in minuti del film
+     * @return la durata in minuti del film
+     */
     public int getDurata_minuti() {
         return durata_minuti;
     }
-
+    /**
+     * Restituisce l'età minima per il film
+     * @return l'età minima per il film
+     */
     public int getEta_minima() {
         return eta_minima;
     }
-
+    /**
+     * Restituisce il prezzo del biglietto
+     * @return il prezzo del biglietto
+     */
     public double getPrezzo_biglietto() {
         return prezzo_biglietto;
     }
-
+    /**
+     * Imposta la data e ora
+     * @param la data e ora da impostare
+     */
     public void setData_ora(Date data_ora) {
         this.data_ora = data_ora;
     }
-
+    /**
+     * Imposta il titolo del film
+     * @param il nuovo titolo
+     */
     public void setTitolo(String titolo) {
         this.titolo = titolo;
     }
-
+    /**
+     * Imposta il genere del film
+     * @param il nuovo genere
+     */
     public void setGenere(Generi genere) {
         this.genere = genere;
     }
-
+    /**
+     * Imposta il regista del film
+     * @param il nuovo regista
+     */
     public void setRegista(String regista) {
         this.regista = regista;
     }
-
+    /**
+     * Imposta l'anno d'uscita
+     * @param il nuovo anno d'uscita
+     */
     public void setAnno(int anno) {
         this.anno = anno;
     }
-
+    /**
+     * Imposta la durata del film
+     * @param la nuova durata del film
+     */
     public void setDurata_minuti(int durata_minuti) {
         this.durata_minuti = durata_minuti;
     }
-
+    /**
+     * Imposta l'età minima del film
+     * @param la nuova età minima del film
+     */
     public void setEta_minima(int eta_minima) {
         this.eta_minima = eta_minima;
     }
-
+    /**
+     * Imposta il prezzo del biglietto
+     * @param il nuovo prezzo
+     */
     public void setPrezzo_biglietto(double prezzo_biglietto) {
         this.prezzo_biglietto = prezzo_biglietto;
     }
