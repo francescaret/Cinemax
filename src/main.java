@@ -1,15 +1,23 @@
 import Prenotazioni;
 import Proiezioni;
-import Utenti;
+import Utente;
 import GestorePassword;
 import Film;
 import Generi;
 import Ruoli;
 import java.util.Scanner;
+import java.text.SimpleDateformat;
 
 
 public static void main (String[] args){
     //azioni utenti non loggati
+    Ruoli FlagRuoloUtente = null;
+    File f = new File("utenti.csv");
+    FileReader fr = new FileReader(f);
+    BufferedReader br = new BufferedReader(fr);
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    Proiezioni proiezioni = new Proiezioni();
+    GestorePassword gp = new GestorePassword();
     Scanner sc = new Scanner(System.in);
     //Do-While loop per scegliere l'opzione, se non è scelto nessun caso va su default e ritorna indietro per scegliere una nuova opzione
     do {
@@ -19,31 +27,69 @@ public static void main (String[] args){
         switch (scelta) {
             case 1:
                 print("Cerca proiezione:");
-                Proiezioni proiezioni = new Proiezioni();
-                print("\nInserisci il nome del film da cercare\n")
-                String film = sc.nextLine();
-                proiezioni.cercaProiezione(film);
+
+                print("\nInserisci il titolo del film da cercare: \n");
+                String titolo = sc.nextLine();
+                proiezioni.cercaProiezione(titolo);
 
                 //code
                 break;
             case 2:
                 print("Visualizza proiezioni:");
-                Proiezioni proiezioniTotali = new Proiezioni();
-                proiezioniTotali.visualizzaProiezioni();
+                proiezioni.visualizzaProiezioni();
                 //code
                 break;
             case 3:
-                print("registrazione");
+                print("Registrazione:");
+                //data
+                print("\nInserisci data di nascita in formato yyyy-MM--dd: \n");
+                String data = sc.nextLine();
+                //nome
+                print("Inserisci Nome\n");
+                String nome = sc.nextLine();
+                //cognome
+                print("Inserisci Cognome\n");
+                String cognome = sc.nextLine();
+                //username
+                print("Inserisci un Username\n");
+                String username = sc.nextLine();
+                //password
+                print("Inserisci password\n");
+                String password = gp.hashPassword(sc.nextLine());
+                //indirizzo
+                print("Inserisci Indirizzo\n");
+                String indirizzo = sc.nextLine();
+
+                Utente utente = new Utente(data, nome, cognome, username, password, indirizzo);
+
+
+
                 //code
                 break;
             case 4:
                 print("login");
-                //code
+                print("Inserisci un Username\n");
+                String username = sc.nextLine();
+                //password
+                print("Inserisci password\n");
+                String password = gp.hashPassword(sc.nextLine());
+                String delim = new String(",");
+                String[] colonne = new String[7];
+                String riga;
+                while ((riga = br.readLine()) != null) {
+                    colonne = riga.split(delim);
+
+                    if (username == colonne[2] && password == colonne[3]) {
+                        FlagRuoloUtente = colonne[6];
+                    }
+                }
                 break;
             default:
                 print("Inserire un numero da 1 a 4 in base all'opzione desiderata")
         }
-    } while(scelta<1 or scelta>4);
+    } while(scelta<1 || scelta>4);
+
+
 
         //cercaproiezione -> inserisci titolo
         //visualizzaproiezioni
