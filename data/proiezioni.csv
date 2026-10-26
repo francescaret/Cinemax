@@ -1,4 +1,4 @@
-data_ora_proiezione,titolo_film,genere,regista,anno,durata_minuti,eta_minima,prezzo_biglietto
+    data_ora_proiezione,titolo_film,genere,regista,anno,durata_minuti,eta_minima,prezzo_biglietto
 "2027-12-30 10:30:00","A Beautiful Mind",Biography,"Ron Howard",2001,135,12,8.50
 "2027-12-29 16:00:00","Good Will Hunting",Drama,"Gus Van Sant",1997,126,0,8.50
 "2027-12-29 12:30:00","The Best Years of Our Lives",Drama,"William Wyler",1946,170,12,8.50
