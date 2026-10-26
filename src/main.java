@@ -10,7 +10,7 @@ import java.text.SimpleDateformat;
 
 
 public static void main (String[] args){
-    //azioni utenti non loggati
+
     Ruoli FlagRuoloUtente = null;
     File f = new File("utenti.csv");
     FileReader fr = new FileReader(f);
@@ -19,7 +19,8 @@ public static void main (String[] args){
     Proiezioni proiezioni = new Proiezioni();
     GestorePassword gp = new GestorePassword();
     Scanner sc = new Scanner(System.in);
-    //Do-While loop per scegliere l'opzione, se non è scelto nessun caso va su default e ritorna indietro per scegliere una nuova opzione
+
+    //azioni utenti non loggati
     do {
         print("Scegli un'opzione (Inserisci un numero): \n1. Cerca proiezione\n2. Visualizza proiezioni\n3. Registrazione\n4. Login\n")
         int scelta = sc.nextInt();
@@ -31,16 +32,15 @@ public static void main (String[] args){
                 print("\nInserisci il titolo del film da cercare: \n");
                 String titolo = sc.nextLine();
                 proiezioni.cercaProiezione(titolo);
-
-                //code
                 break;
             case 2:
                 print("Visualizza proiezioni:");
+
                 proiezioni.visualizzaProiezioni();
-                //code
                 break;
             case 3:
                 print("Registrazione:");
+
                 //data
                 print("\nInserisci data di nascita in formato yyyy-MM--dd: \n");
                 String data = sc.nextLine();
@@ -61,16 +61,14 @@ public static void main (String[] args){
                 String indirizzo = sc.nextLine();
 
                 Utente utente = new Utente(data, nome, cognome, username, password, indirizzo);
+                print("Utente registrato, puoi procedere con il login");
 
 
-
-                //code
-                break;
             case 4:
-                print("login");
+                print("Login");
+
                 print("Inserisci un Username\n");
                 String username = sc.nextLine();
-                //password
                 print("Inserisci password\n");
                 String password = gp.hashPassword(sc.nextLine());
                 String delim = new String(",");
@@ -87,7 +85,23 @@ public static void main (String[] args){
             default:
                 print("Inserire un numero da 1 a 4 in base all'opzione desiderata")
         }
-    } while(scelta<1 || scelta>4);
+    } while(FlagRuoloUtente == null);
+
+    switch(FlagRuoloUtente) {
+        case CLIENTE:
+            //code
+            break;
+
+        case PROIEZIONISTA:
+            //code
+            break;
+        case BIGLIETTAIO:
+            //code
+            break;
+        default
+            //code
+            break;
+    }
 
 
 
