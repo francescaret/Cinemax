@@ -10,12 +10,13 @@ import java.text.SimpleDateformat;
 
 
 public static void main (String[] args){
-
+    boolean uscita=false;
     Ruoli FlagRuoloUtente = null;
     File f = new File("utenti.csv");
     FileReader fr = new FileReader(f);
     BufferedReader br = new BufferedReader(fr);
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    Prenotazioni prenotazioni = new Prenotazioni();
     Proiezioni proiezioni = new Proiezioni();
     GestorePassword gp = new GestorePassword();
     Scanner sc = new Scanner(System.in);
@@ -89,7 +90,34 @@ public static void main (String[] args){
 
     switch(FlagRuoloUtente) {
         case CLIENTE:
-            //code
+            System.out.println("Benvenuto " + colonne[2]);
+            do {
+                System.out.println("Scegli un'opzione (Inserisci un numero): \n1. Visualizza prenotazioni\n2. Crea prenotazione\n3. Elimina prenotazione\n4. Modifica prenotazione\n5. Esci");
+                scelta = sc.nextInt();
+                switch (scelta) {
+                    case 1:
+                        prenotazioni.trovaPrenotazione(colonne[2]);
+                    case 2:
+                        print("Inserisci il nome del film da prenotare");
+                        String filmPrenotato = sc.nextLine();
+                        //prenotazioni.creaPrenotazione(colonne[2], filmPrenotato, proiezioni);
+                    case 3:
+
+                    case 4:
+
+                    case 5:
+                        uscita=true;
+                        break;
+                    default:
+                        System.out.println("Scelta non valida");
+                }
+            } while (uscita);
+            //visualizza prenotazioni
+
+            //crea prenotazione
+            //elimina prenotazione
+            //modifica prenotazione
+            //uscita
             break;
 
         case PROIEZIONISTA:
@@ -98,11 +126,8 @@ public static void main (String[] args){
         case BIGLIETTAIO:
             //code
             break;
-        default
-            //code
-            break;
     }
-
+        System.out.println("Grazie per aver utilizzato il sistema CINEMAX.");
 
 
         //cercaproiezione -> inserisci titolo
@@ -122,11 +147,12 @@ public static void main (String[] args){
                     //switch case con opzioni
                         //cerca prenotazione (da fare con id)
                         //visualizza prenotazioni (di tutti)
+                        //uscita
                 //PROIEZIONISTA
                     //switch case con opzioni
                         //modifica proiezione
                         //crea proiezione
                         //elimina proiezione
-
+                        //uscita
 
 }
