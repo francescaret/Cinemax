@@ -22,6 +22,7 @@ public class Film {
     private int durata_minuti;
     private int eta_minima;
     private double prezzo_biglietto;
+    private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     //COSTRUTTORI
 
@@ -37,8 +38,6 @@ public class Film {
     File f= new File("proiezioni.csv");
     FileReader fr = new FileReader(f);
     BufferedReader br = new BufferedReader(fr);
-
-    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     String[] colonne = new String[8];
     String riga;
@@ -63,6 +62,17 @@ public class Film {
 
     }
 
+    //COSTRUTTORE CON TUTTI
+    public Film (String data_ora, String titolo, String genere, String regista, int anno, int durata_minuti, int eta_minima, double prezzo_biglietto) throws ParseException {
+        this.data_ora = formatter.parse(data_ora);
+        this.titolo = titolo;
+        this.genere = Generi.valueOf(genere);
+        this.regista = regista;
+        this.anno = anno;
+        this.durata_minuti = durata_minuti;
+        this.eta_minima = eta_minima;
+        this.prezzo_biglietto = prezzo_biglietto;
+    }
 
     //METODI
     /**
