@@ -1,6 +1,5 @@
 import java.util.Date;
 import java.io.*;
-import java.text.SimpleDateformat;
 
 /**
  * Un oggetto della classe <code>Utente</code> rappresenta
@@ -15,12 +14,12 @@ public class Utente {
     //CAMPI
 
     private Date datanascita;
-    private String Nome;
-    private String Cognome;
-    private String Username;
-    private String Password;
-    private String Indirizzo;
-    private Ruoli Ruolo;
+    private String nome;
+    private String cognome;
+    private String username;
+    private String password;
+    private String indirizzo;
+    private Ruoli ruolo;
 
 
     //COSTRUTTORI
@@ -29,53 +28,54 @@ public class Utente {
      * Costruisce un oggetto che rappresenta il cliente
      * con i suoi dati anagrafici e il ruolo di default "CLIENTE"
      * @param datanascita la data di nascita dell'utente
-     * @param Nome è il nome dell'utente
-     * @param Cognome è il cognome dell'utente
-     * @param Username è lo username dell'utente
-     * @param Password è la password scelta dall'utente
-     * @param Indirizzo è l'indirizzo dove l'utente è locato
+     * @param nome è il nome dell'utente
+     * @param cognome è il cognome dell'utente
+     * @param username è lo username dell'utente
+     * @param password è la password scelta dall'utente
+     * @param indirizzo è l'indirizzo dove l'utente è locato
      */
 
-    public Utente (Date datanascita,String Nome, String Cognome, String Username, String Password, String Indirizzo) {
+    public Utente (Date datanascita,String nome, String cognome, String username, String password, String indirizzo) throws IOException {
 
         this.datanascita = datanascita;
-        this.Nome = Nome;
-        this.Cognome = Cognome;
-        this.Username = Username;
-        this.Password = Password;//mofifica per farlo
-        this.Indirizzo = Indirizzo;
+        this.nome = nome;
+        this.cognome = cognome;
+        this.username = username;
+        this.password = password;//mofifica per farlo
+        this.indirizzo = indirizzo;
+        this.ruolo = Ruoli.valueOf("CLIENTE");
         //Salvo l'oggetto utente nel file
         File f= new File("utenti.csv");
-        FileWriter fw = new FileWriter(fw);
+        FileWriter fw = new FileWriter(f);
         BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(Nome+","+Cognome+","+Username+","+Password+","+datanascita+","+Indirizzo+","+Ruolo);
+        bw.write(nome+","+cognome+","+username+","+password+","+datanascita+","+indirizzo+","+ruolo);
 
     }
     /**
      * Costruisce un oggetto che rappresenta il cliente
      * con i suoi dati anagrafici e il ruolo inserito come parametro
      * @param datanascita la data di nascita dell'utente
-     * @param Nome è il nome dell'utente
-     * @param Cognome è il cognome dell'utente
-     * @param Username è lo username dell'utente
-     * @param Password è la password scelta dall'utente
-     * @param Indirizzo è l'indirizzo dove l'utente è locato
-     * @param Ruolo è il ruolo che assegnamo al cliente
+     * @param nome è il nome dell'utente
+     * @param cognome è il cognome dell'utente
+     * @param username è lo username dell'utente
+     * @param password è la password scelta dall'utente
+     * @param indirizzo è l'indirizzo dove l'utente è locato
+     * @param ruolo è il ruolo che assegnamo al cliente
      */
-    public Utente (Date datanascita,String Nome, String Cognome, String Username, String Password, String Indirizzo, Ruoli Ruolo) {
+    public Utente (Date datanascita,String nome, String cognome, String username, String password, String indirizzo, String ruolo) throws IOException {
 
         this.datanascita = datanascita;
-        this.Nome = Nome;
-        this.Cognome = Cognome;
-        this.Username = Username;
-        this.Password = Password;//mofifica per farlo
-        this.Indirizzo = Indirizzo;
-        this.Ruolo = Ruolo;
+        this.nome = nome;
+        this.cognome = cognome;
+        this.username = username;
+        this.password = password;//mofifica per farlo
+        this.indirizzo = indirizzo;
+        this.ruolo = Ruoli.valueOf(ruolo);
         //Salvo l'oggetto utente nel file
         File f= new File("utenti.csv");
-        FileWriter fw = new FileWriter(fw);
+        FileWriter fw = new FileWriter(f);
         BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(Nome+","+Cognome+","+Username+","+Password+","+datanascita+","+Indirizzo+","+Ruolo);
+        bw.write(nome+","+cognome+","+username+","+password+","+datanascita+","+indirizzo+","+ruolo);
 
     }
 
@@ -91,7 +91,7 @@ public class Utente {
 
     /**
      * imposta la data di nascita
-     * @param la data di nascita
+     * @param datanascita la data di nascita
      */
     public void setDatanascita(Date datanascita) {
         this.datanascita = datanascita;
@@ -102,15 +102,15 @@ public class Utente {
      * @return il nome
      */
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
     /**
      * imposta il nome
-     * @param il nome
+     * @param nome il nome
      */
     public void setNome(String nome) {
-        Nome = nome;
+        this.nome = nome;
     }
 
     /**
@@ -118,15 +118,15 @@ public class Utente {
      * @return il cognome
      */
     public String getCognome() {
-        return Cognome;
+        return cognome;
     }
 
     /**
      * imposta il cogome
-     * @param il cognome
+     * @param cognome il cognome
      */
     public void setCognome(String cognome) {
-        Cognome = cognome;
+        this.cognome = cognome;
     }
 
     /**
@@ -134,15 +134,15 @@ public class Utente {
      * @return lo username
      */
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     /**
      * imposta lo username
-     * @param lo username
+     * @param username l'username
      */
     public void setUsername(String username) {
-        Username = username;
+        this.username = username;
     }
 
     /**
@@ -150,15 +150,15 @@ public class Utente {
      * @return la password
      */
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     /**
      * imposta la password
-     * @param la password
+     * @param password la password
      */
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     /**
@@ -166,15 +166,15 @@ public class Utente {
      * @return l'indirizzo
      */
     public String getIndirizzo() {
-        return Indirizzo;
+        return indirizzo;
     }
 
     /**
      * imposta l'indirizzo
-     * @param l'indirizzo
+     * @param indirizzo l'indirizzo
      */
     public void setIndirizzo(String indirizzo) {
-        Indirizzo = indirizzo;
+        this.indirizzo = indirizzo;
     }
 
     /**
@@ -182,15 +182,15 @@ public class Utente {
      * @return il ruolo
      */
     public Ruoli getRuolo() {
-        return Ruolo;
+        return ruolo;
     }
 
-}
+
 /**
  * imposta il ruolo
- * @param il ruolo
+ * @param ruolo il ruolo
  */
-    public void setRuolo(Ruoli ruolo) {
-        Ruolo = ruolo;
+    public void setRuolo(String ruolo) {
+        this.ruolo = Ruoli.valueOf(ruolo);
     }
 }
