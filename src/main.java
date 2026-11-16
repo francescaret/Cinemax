@@ -1,16 +1,10 @@
-import Prenotazioni;
-import Proiezioni;
-import Utente;
-import GestorePassword;
-import Film;
-import Generi;
-import Ruoli;
 import java.util.Scanner;
-import java.text.SimpleDateformat;
+import java.io.*;
+import java.text.SimpleDateFormat;
 
 
-public static void main (String[] args){
-    boolean uscita=false;
+public static void main (String[] args) throws IOException {
+    boolean uscita = false;
     Ruoli FlagRuoloUtente = null;
     File f = new File("utenti.csv");
     FileReader fr = new FileReader(f);
@@ -20,58 +14,59 @@ public static void main (String[] args){
     Proiezioni proiezioni = new Proiezioni();
     GestorePassword gp = new GestorePassword();
     Scanner sc = new Scanner(System.in);
-
+    String username;
+    String password;
     //azioni utenti non loggati
     do {
-        print("Scegli un'opzione (Inserisci un numero): \n1. Cerca proiezione\n2. Visualizza proiezioni\n3. Registrazione\n4. Login\n")
+        System.out.print("Scegli un'opzione (Inserisci un numero): \n1. Cerca proiezione\n2. Visualizza proiezioni\n3. Registrazione\n4. Login\n");
         int scelta = sc.nextInt();
         //switch case con opzioni
         switch (scelta) {
             case 1:
-                print("Cerca proiezione:");
+                System.out.print("Cerca proiezione:");
 
-                print("\nInserisci il titolo del film da cercare: \n");
+                System.out.print("\nInserisci il titolo del film da cercare: \n");
                 String titolo = sc.nextLine();
                 proiezioni.cercaProiezione(titolo);
                 break;
             case 2:
-                print("Visualizza proiezioni:");
+                System.out.print("Visualizza proiezioni:");
 
                 proiezioni.visualizzaProiezioni();
                 break;
             case 3:
-                print("Registrazione:");
+                System.out.print("Registrazione:");
 
                 //data
-                print("\nInserisci data di nascita in formato yyyy-MM--dd: \n");
+                System.out.print("\nInserisci data di nascita in formato yyyy-MM--dd: \n");
                 String data = sc.nextLine();
                 //nome
-                print("Inserisci Nome\n");
+                System.out.print("Inserisci Nome\n");
                 String nome = sc.nextLine();
                 //cognome
-                print("Inserisci Cognome\n");
+                System.out.print("Inserisci Cognome\n");
                 String cognome = sc.nextLine();
                 //username
-                print("Inserisci un Username\n");
-                String username = sc.nextLine();
+                System.out.print("Inserisci un Username\n");
+                username = sc.nextLine();
                 //password
-                print("Inserisci password\n");
-                String password = gp.hashPassword(sc.nextLine());
+                System.out.print("Inserisci password\n");
+                password = gp.hashPassword(sc.nextLine());
                 //indirizzo
-                print("Inserisci Indirizzo\n");
+                System.out.print("Inserisci Indirizzo\n");
                 String indirizzo = sc.nextLine();
 
                 Utente utente = new Utente(data, nome, cognome, username, password, indirizzo);
-                print("Utente registrato, puoi procedere con il login");
+                System.out.print("Utente registrato, puoi procedere con il login");
 
 
             case 4:
-                print("Login");
+                System.out.print("Login");
 
-                print("Inserisci un Username\n");
-                String username = sc.nextLine();
-                print("Inserisci password\n");
-                String password = gp.hashPassword(sc.nextLine());
+                System.out.print("Inserisci un Username\n");
+                username = sc.nextLine();
+                System.out.print("Inserisci password\n");
+                password = gp.hashPassword(sc.nextLine());
                 String delim = new String(",");
                 String[] colonne = new String[7];
                 String riga;
@@ -79,12 +74,12 @@ public static void main (String[] args){
                     colonne = riga.split(delim);
 
                     if (username == colonne[2] && password == colonne[3]) {
-                        FlagRuoloUtente = colonne[6];
+                        FlagRuoloUtente = Ruoli.valueOf(colonne[6]);
                     }
                 }
                 break;
             default:
-                print("Inserire un numero da 1 a 4 in base all'opzione desiderata")
+                System.out.print("Inserire un numero da 1 a 4 in base all'opzione desiderata")
         }
     } while(FlagRuoloUtente == null);
 
@@ -93,12 +88,12 @@ public static void main (String[] args){
             System.out.println("Benvenuto " + colonne[2]);
             do {
                 System.out.println("Scegli un'opzione (Inserisci un numero): \n1. Visualizza prenotazioni\n2. Crea prenotazione\n3. Elimina prenotazione\n4. Modifica prenotazione\n5. Esci");
-                scelta = sc.nextInt();
+                int scelta = sc.nextInt();
                 switch (scelta) {
                     case 1:
                         prenotazioni.trovaPrenotazione(colonne[2]);
                     case 2:
-                        print("Inserisci il nome del film da prenotare");
+                        System.out.print("Inserisci il nome del film da prenotare");
                         String filmPrenotato = sc.nextLine();
                         //prenotazioni.creaPrenotazione(colonne[2], filmPrenotato, proiezioni);
                     case 3:
