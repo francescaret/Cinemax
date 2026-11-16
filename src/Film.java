@@ -1,6 +1,6 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.io.*;
-import java.text.SimpleDateformat;
 import java.text.ParseException;
 
 /**
@@ -123,56 +123,56 @@ public class Film {
     }
     /**
      * Imposta la data e ora
-     * @param la data e ora da impostare
+     * @param data_ora la data e ora da impostare
      */
     public void setData_ora(Date data_ora) {
         this.data_ora = data_ora;
     }
     /**
      * Imposta il titolo del film
-     * @param il nuovo titolo
+     * @param titolo il nuovo titolo
      */
     public void setTitolo(String titolo) {
         this.titolo = titolo;
     }
     /**
      * Imposta il genere del film
-     * @param il nuovo genere
+     * @param genere il nuovo genere
      */
     public void setGenere(Generi genere) {
         this.genere = genere;
     }
     /**
      * Imposta il regista del film
-     * @param il nuovo regista
+     * @param regista il nuovo regista
      */
     public void setRegista(String regista) {
         this.regista = regista;
     }
     /**
      * Imposta l'anno d'uscita
-     * @param il nuovo anno d'uscita
+     * @param anno il nuovo anno d'uscita
      */
     public void setAnno(int anno) {
         this.anno = anno;
     }
     /**
      * Imposta la durata del film
-     * @param la nuova durata del film
+     * @param durata_minuti la nuova durata del film
      */
     public void setDurata_minuti(int durata_minuti) {
         this.durata_minuti = durata_minuti;
     }
     /**
      * Imposta l'età minima del film
-     * @param la nuova età minima del film
+     * @param eta_minima la nuova età minima del film
      */
     public void setEta_minima(int eta_minima) {
         this.eta_minima = eta_minima;
     }
     /**
      * Imposta il prezzo del biglietto
-     * @param il nuovo prezzo
+     * @param prezzo_biglietto il nuovo prezzo
      */
     public void setPrezzo_biglietto(double prezzo_biglietto) {
         this.prezzo_biglietto = prezzo_biglietto;
