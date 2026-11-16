@@ -58,9 +58,11 @@ public class Prenotazioni {
             colonne = riga.split(",");
 
             if (u.equals(colonne[1])) {
+                System.out.println(colonne);
                 return true;
             }
         }
+        System.out.println("Nessuna prenotazione trovata");
         return false;
 
     }

@@ -3,7 +3,7 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 
 
-public static void main (String[] args) throws IOException {
+public static void main (String[] args) throws IOException, NoSuchAlgorithmException, ParseException {
     boolean uscita = false;
     Ruoli FlagRuoloUtente = null;
     File f = new File("utenti.csv");
@@ -14,8 +14,8 @@ public static void main (String[] args) throws IOException {
     Proiezioni proiezioni = new Proiezioni();
     GestorePassword gp = new GestorePassword();
     Scanner sc = new Scanner(System.in);
-    String username;
-    String password;
+    String username = null;
+    String password = null;
     //azioni utenti non loggati
     do {
         System.out.print("Scegli un'opzione (Inserisci un numero): \n1. Cerca proiezione\n2. Visualizza proiezioni\n3. Registrazione\n4. Login\n");
@@ -79,19 +79,19 @@ public static void main (String[] args) throws IOException {
                 }
                 break;
             default:
-                System.out.print("Inserire un numero da 1 a 4 in base all'opzione desiderata")
+                System.out.print("Inserire un numero da 1 a 4 in base all'opzione desiderata");
         }
     } while(FlagRuoloUtente == null);
 
     switch(FlagRuoloUtente) {
         case CLIENTE:
-            System.out.println("Benvenuto " + colonne[2]);
+            System.out.println("Benvenuto " + username);
             do {
                 System.out.println("Scegli un'opzione (Inserisci un numero): \n1. Visualizza prenotazioni\n2. Crea prenotazione\n3. Elimina prenotazione\n4. Modifica prenotazione\n5. Esci");
                 int scelta = sc.nextInt();
                 switch (scelta) {
                     case 1:
-                        prenotazioni.trovaPrenotazione(colonne[2]);
+                        prenotazioni.trovaPrenotazione(username);
                     case 2:
                         System.out.print("Inserisci il nome del film da prenotare");
                         String filmPrenotato = sc.nextLine();
