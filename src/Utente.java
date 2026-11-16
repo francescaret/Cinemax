@@ -1,5 +1,7 @@
+import java.text.ParseException;
 import java.util.Date;
 import java.io.*;
+import java.text.SimpleDateFormat;
 
 /**
  * Un oggetto della classe <code>Utente</code> rappresenta
@@ -20,7 +22,7 @@ public class Utente {
     private String password;
     private String indirizzo;
     private Ruoli ruolo;
-
+    private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
     //COSTRUTTORI
 
@@ -35,9 +37,9 @@ public class Utente {
      * @param indirizzo è l'indirizzo dove l'utente è locato
      */
 
-    public Utente (Date datanascita,String nome, String cognome, String username, String password, String indirizzo) throws IOException {
+    public Utente (String datanascita,String nome, String cognome, String username, String password, String indirizzo) throws IOException, ParseException {
 
-        this.datanascita = datanascita;
+        this.datanascita = formatter.parse(datanascita);
         this.nome = nome;
         this.cognome = cognome;
         this.username = username;

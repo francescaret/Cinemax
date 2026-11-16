@@ -63,15 +63,15 @@ public class Film {
     }
 
     //COSTRUTTORE CON TUTTI
-    public Film (String data_ora, String titolo, String genere, String regista, int anno, int durata_minuti, int eta_minima, double prezzo_biglietto) throws ParseException {
+    public Film (String data_ora, String titolo, String genere, String regista, String anno, String durata_minuti, String eta_minima, String prezzo_biglietto) throws ParseException {
         this.data_ora = formatter.parse(data_ora);
         this.titolo = titolo;
         this.genere = Generi.valueOf(genere);
         this.regista = regista;
-        this.anno = anno;
-        this.durata_minuti = durata_minuti;
-        this.eta_minima = eta_minima;
-        this.prezzo_biglietto = prezzo_biglietto;
+        this.anno = Integer.parseInt(anno);
+        this.durata_minuti = Integer.parseInt(durata_minuti);
+        this.eta_minima = Integer.parseInt(eta_minima);
+        this.prezzo_biglietto = Double.parseDouble(prezzo_biglietto);
     }
 
     //METODI
