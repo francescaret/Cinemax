@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 public static void main (String[] args) throws IOException, NoSuchAlgorithmException, ParseException {
     boolean uscita = false;
     Ruoli FlagRuoloUtente = null;
-    File f = new File("utenti.csv");
+    File f = new File("data/utenti.csv");
     FileReader fr = new FileReader(f);
     BufferedReader br = new BufferedReader(fr);
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -67,14 +67,14 @@ public static void main (String[] args) throws IOException, NoSuchAlgorithmExcep
                 username = sc.nextLine();
                 System.out.print("Inserisci password\n");
                 password = gp.hashPassword(sc.nextLine());
-                String delim = new String(",");
-                String[] colonne = new String[7];
+                String delim = ",";
+                String[] informazioniutente = new String[7];
                 String riga;
                 while ((riga = br.readLine()) != null) {
-                    colonne = riga.split(delim);
+                    informazioniutente = riga.split(delim);
 
-                    if (username == colonne[2] && password == colonne[3]) {
-                        FlagRuoloUtente = Ruoli.valueOf(colonne[6]);
+                    if (username == informazioniutente[2] && password == informazioniutente[3]) {
+                        FlagRuoloUtente = Ruoli.valueOf(informazioniutente[6]);
                     }
                 }
                 break;

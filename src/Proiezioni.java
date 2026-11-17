@@ -17,7 +17,7 @@ public class Proiezioni {
     private LinkedList<Film> proiezioni;
     private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    File proiezioniAttuali = new File("proiezioniAttuali.csv");
+    File proiezioniAttuali = new File("data/proiezioniAttuali.csv");
     FileWriter fw;
 
     {

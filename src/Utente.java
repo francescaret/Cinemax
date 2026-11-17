@@ -47,7 +47,7 @@ public class Utente {
         this.indirizzo = indirizzo;
         this.ruolo = Ruoli.valueOf("CLIENTE");
         //Salvo l'oggetto utente nel file
-        File f= new File("utenti.csv");
+        File f= new File("data/utenti.csv");
         FileWriter fw = new FileWriter(f);
         BufferedWriter bw = new BufferedWriter(fw);
         bw.write(nome+","+cognome+","+username+","+password+","+datanascita+","+indirizzo+","+ruolo);
@@ -74,7 +74,7 @@ public class Utente {
         this.indirizzo = indirizzo;
         this.ruolo = Ruoli.valueOf(ruolo);
         //Salvo l'oggetto utente nel file
-        File f= new File("utenti.csv");
+        File f= new File("data/utenti.csv");
         FileWriter fw = new FileWriter(f);
         BufferedWriter bw = new BufferedWriter(fw);
         bw.write(nome+","+cognome+","+username+","+password+","+datanascita+","+indirizzo+","+ruolo);

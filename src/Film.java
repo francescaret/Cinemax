@@ -35,7 +35,7 @@ public class Film {
     public Film (String t) throws IOException, ParseException{
 
     String delim=",";
-    File f= new File("proiezioni.csv");
+    File f= new File("data/proiezioni.csv");
     FileReader fr = new FileReader(f);
     BufferedReader br = new BufferedReader(fr);
 
