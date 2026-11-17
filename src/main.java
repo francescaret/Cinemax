@@ -24,6 +24,7 @@ public static void main (String[] args) throws IOException, NoSuchAlgorithmExcep
         switch (scelta) {
             case 1:
                 System.out.print("Cerca proiezione:");
+                sc.nextLine();
 
                 System.out.print("\nInserisci il titolo del film da cercare: \n");
                 String titolo = sc.nextLine();
@@ -95,7 +96,7 @@ public static void main (String[] args) throws IOException, NoSuchAlgorithmExcep
                     case 2:
                         System.out.print("Inserisci il nome del film da prenotare");
                         String filmPrenotato = sc.nextLine();
-                        //prenotazioni.creaPrenotazione(colonne[2], filmPrenotato, proiezioni);
+                        //prenotazioni.creaPrenotazione(username, filmPrenotato, proiezioni);
                     case 3:
 
                     case 4:

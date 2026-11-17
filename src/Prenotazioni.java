@@ -1,59 +1,51 @@
 import java.io.*;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.LinkedList;
 
 public class Prenotazioni {
 
     //CAMPI
-    private int id;
-    private String username;
-    private String film;
-    private static int count = 0;
+    private Proiezioni proiezioni = new Proiezioni();
+    private LinkedList<String> prenotazioni;
+    private File file= new File("data/prenotazioni.csv");
+    private FileWriter fw = new FileWriter(file);
+    private BufferedWriter bw = new BufferedWriter(fw);
+    private FileReader fr = new FileReader(file);
+    private BufferedReader br = new BufferedReader(fr);
 
     //COSTRUTTORI
-    public Prenotazioni(String u, String f) throws IOException {
-        id = ++count;
-        username = u;
-        film = f;
+    public Prenotazioni() throws IOException, ParseException {
+        prenotazioni = new LinkedList<>();
 
-        File file= new File("prenotazioni.csv");
-        FileWriter fw = new FileWriter(file);
-        BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(id+","+username+","+film);
+        String[] colonne = new String[8];
+        String riga;
+        while ((riga = br.readLine()) != null) {
+            String delim = ",";
+            colonne = riga.split(delim);
+            Film f = new Film(colonne[1], colonne[2], colonne[3], colonne[4], colonne[5], colonne[6], colonne[7], colonne[8]);
+            String film = f.toString();
+
+            prenotazioni.add(colonne[0] + "," + film);
+        }
+
     }
-
-
 
 
     //METODI
-    public int getId() {
-        return id;
+    public void aggiungiPrenotazione(String username, String titolo, String data) throws IOException, ParseException {
+        String informazioniFilm = proiezioni.cercaProiezioneConData(titolo, data).toString();
+
+        prenotazioni.add(username + "," + informazioniFilm);
+
+        bw.write(username + "," + informazioniFilm);
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getFilm() {
-        return film;
-    }
-
-    public void setFilm(String film) {
-        this.film = film;
-    }
 
     public Boolean trovaPrenotazione(String u) throws IOException {
         String[] colonne = new String[3];
         String riga;
-        File f= new File("prenotazioni.csv");
-        FileReader fr = new FileReader(f);
-        BufferedReader br = new BufferedReader(fr);
+
         while ((riga = br.readLine()) != null) {
             colonne = riga.split(",");
 

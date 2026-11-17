@@ -47,7 +47,7 @@ public class Proiezioni {
         proiezioni = new LinkedList<Film>();
 
 
-
+        //legge il file proiezioniAttuali.csv, crea un oggetto Film per ogni riga e lo aggiunge alla lista di Film nella classe proiezioni
         String[] colonne = new String[8];
         String riga;
         while ((riga = br.readLine()) != null) {
@@ -88,14 +88,14 @@ public class Proiezioni {
 
     public void modificaDataOra(String t, String d) throws FileNotFoundException, ParseException {
         for (int i = 0; i < proiezioni.size(); i++) {
-            if (t.equals(proiezioni.get(i))) {
+            if (t.equals(proiezioni.get(i).getTitolo())) {
                 proiezioni.get(i).setData_ora(formatter.parse(d));
             }
         }
     }
     public void modificaPrezzo_biglietto(String t, double pb) throws FileNotFoundException {
             for (int i=0; i<proiezioni.size(); i++){
-                if (t.equals(proiezioni.get(i))){
+                if (t.equals(proiezioni.get(i).getTitolo())){
                     proiezioni.get(i).setPrezzo_biglietto(pb);
                 }
             }
@@ -107,11 +107,21 @@ public class Proiezioni {
     }
     public Film cercaProiezione(String t) throws FileNotFoundException {
         for (int i = 0; i < proiezioni.size(); i++) {
-            if (t.equals(proiezioni.get(i))) {
+            if (t.equals(proiezioni.get(i).getTitolo())) {
                 return proiezioni.get(i);
 
             }
         }
         return null;
     }
+    public Film cercaProiezioneConData(String t, String data) {
+        for (int i = 0; i < proiezioni.size(); i++) {
+            if (t.equals(proiezioni.get(i).getTitolo()) && data.equals(proiezioni.get(i).getData_ora().toString())) {
+                return proiezioni.get(i);
+
+            }
+        }
+        return null;
+    }
+
     }
