@@ -187,4 +187,12 @@ public class Film {
     public void setPrezzo_biglietto(double prezzo_biglietto) {
         this.prezzo_biglietto = prezzo_biglietto;
     }
+
+    /**
+     * @return il film sotto forma di stringa
+     */
+    public String toString(){
+        String filmstringa = data_ora + "," + titolo + "," + genere + "," + regista + "," + anno + "," + durata_minuti + "," + eta_minima + "," + prezzo_biglietto;
+        return filmstringa;
+    }
 }

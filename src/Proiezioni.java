@@ -64,14 +64,14 @@ public class Proiezioni {
         f.setData_ora(data);
         proiezioni.add(f);
 
-        //bw.write(data_ora_proiezione+","+titolo_film+","genere+","+regista+","+anno+","+durata_minuti+","+eta_minima+","+prezzo_biglietto);
+        bw.write(f.toString());
     }
 
     public void aggiungiProiezioneCustom(String data, String titolo, String genere, String regista, String anno, String durata, String eta_minima, String prezzo_biglietto) throws IOException, ParseException {
         Film f = new Film(data, titolo, genere, regista, anno, durata, eta_minima, prezzo_biglietto);
         proiezioni.add(f);
 
-        //bw.write();
+        bw.write(f.toString());
     }
 
     public void eliminaProiezione(String t) throws IOException {
